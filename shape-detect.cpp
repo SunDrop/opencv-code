@@ -85,12 +85,9 @@ int main()
 			for (int j = 2; j < vtc+1; j++)
 				cos.push_back(angle(approx[j%vtc], approx[j-2], approx[j-1]));
 
-			// Sort ascending the cosine values
-			std::sort(cos.begin(), cos.end());
-
 			// Get the lowest and the highest cosine
-			double mincos = cos.front();
-			double maxcos = cos.back();
+			double mincos = *std::min_element(cos.begin(), cos.end());
+			double maxcos = *std::max_element(cos.begin(), cos.end());
 
 			// Use the degrees obtained above and the number of vertices
 			// to determine the shape of the contour
